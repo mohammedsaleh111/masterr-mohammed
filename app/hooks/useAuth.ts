@@ -1,7 +1,7 @@
 // hooks/useAuth.ts
 import { SetStateAction, useEffect, useState } from "react";
 import { auth, googleProvider } from "../../lib/firebase";
-import { User, signInWithPopup } from "firebase/auth";
+import { User, signInWithPopup,signInWithRedirect } from "firebase/auth";
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
@@ -18,7 +18,7 @@ export function useAuth() {
   // دالة لتسجيل الدخول باستخدام جوجل
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithRedirect(auth, googleProvider);
     } catch (error) {
       console.error("Error signing in:", error);
     }

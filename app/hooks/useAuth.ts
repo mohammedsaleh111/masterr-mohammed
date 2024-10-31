@@ -1,7 +1,7 @@
 // hooks/useAuth.ts
 import { SetStateAction, useEffect, useState } from "react";
-import { auth, googleProvider } from "../../lib/firebase";
-import { User, signInWithPopup,signInWithRedirect } from "firebase/auth";
+import { auth, googleProvider, signInWithRedirect } from "../../lib/firebase";
+import { User, signInWithPopup } from "firebase/auth";
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);

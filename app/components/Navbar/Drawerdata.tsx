@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { useAuth } from "../../hooks/useAuth";
+
 
 interface NavigationItem {
     name: string;
@@ -20,6 +22,9 @@ function classNames(...classes: string[]) {
 }
 
 const Data = () => {
+
+    const { user, signInWithGoogle } = useAuth();
+
     return (
         <div className="rounded-md max-w-sm w-full mx-auto">
             <div className="flex-1 space-y-4 py-1">
@@ -38,10 +43,9 @@ const Data = () => {
                                 {item.name}
                             </Link>
                         ))}
-                        <div className="mt-4"></div>
-                        <button className='flex justify-center text-base w-full font-medium rounded-full bg-transparent border border-bgpink text-pink py-3 px-4 lg:px-8 navbutton hover:text-white hover:bg-pink'> تواصل مع الماستر </button>
+                        <br />
+                        {  user ? <Link className='text-l w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>) }
 
-                        {/* <Contactusform /> */}
                     </div>
                 </div>
             </div>

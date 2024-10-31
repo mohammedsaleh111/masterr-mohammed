@@ -582,6 +582,24 @@ video {
 .mt-9{
   margin-top: 2.25rem;
 }
+.mt-12{
+  margin-top: 3rem;
+}
+.mt-6{
+  margin-top: 1.5rem;
+}
+.ml-12{
+  margin-left: 3rem;
+}
+.ml-20{
+  margin-left: 5rem;
+}
+.ml-28{
+  margin-left: 7rem;
+}
+.ml-24{
+  margin-left: 6rem;
+}
 .line-clamp-2{
   overflow: hidden;
   display: -webkit-box;
@@ -618,6 +636,15 @@ video {
 .h-full{
   height: 100%;
 }
+.h-\[50vw\]{
+  height: 50vw;
+}
+.h-\[50vh\]{
+  height: 50vh;
+}
+.min-h-screen{
+  min-height: 100vh;
+}
 .w-0\.5{
   width: 0.125rem;
 }
@@ -632,6 +659,15 @@ video {
 }
 .w-screen{
   width: 100vw;
+}
+.w-\[\]{
+  width: ;
+}
+.w-\[50\]{
+  width: 50;
+}
+.w-\[50vw\]{
+  width: 50vw;
 }
 .max-w-2xl{
   max-width: 42rem;
@@ -833,6 +869,9 @@ video {
 .p-8{
   padding: 2rem;
 }
+.p-6{
+  padding: 1.5rem;
+}
 .px-3{
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1015,6 +1054,11 @@ video {
 .shadow-xl{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-md{
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .filter{

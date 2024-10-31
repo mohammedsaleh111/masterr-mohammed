@@ -76,17 +76,19 @@ const Navbar = () => {
 
                             </div>
 
-                            {user ? (
-                                <img
-                                    src={user.photoURL || ""}
-                                    alt="user"
-                                    className="rounded-full w-10 h-10"
-                                />
-                            ) : (
-                                <a onClick={signInWithGoogle} className="cursor-pointer">
-                                    تسجيل الدخول
-                                </a>
-                            )}
+                            <div className='ml-24'>
+                                {user ? (
+                                    <img
+                                        src={user.photoURL || ""}
+                                        alt="user"
+                                        className="rounded-full w-10 h-10"
+                                    />
+                                ) : (
+                                    <a onClick={signInWithGoogle} className="cursor-pointer">
+                                        تسجيل الدخول
+                                    </a>
+                                )}
+                            </div>
 
                         </div>
 

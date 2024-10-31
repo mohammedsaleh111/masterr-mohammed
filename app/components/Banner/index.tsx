@@ -28,7 +28,7 @@ const Banner = () => {
                         </Fade>
                     </div>
 
-                    <div className='col-span-6 flex justify-center items-center mt-11'>
+                    <div className='col-span-6 flex justify-center items-center mt-21'>
                         <div className='flex bg-white p-2 gap-5 items-center bottom-10 left-10 rounded-xl relative'>
                             <Image className=' opacity-40' src={'/images/Logo/icon.png'} alt="pizza-image" width={500} height={500} />
                         </div>

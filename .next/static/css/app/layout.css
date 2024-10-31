@@ -555,6 +555,9 @@ video {
 .mt-1{
   margin-top: 0.25rem;
 }
+.mt-10{
+  margin-top: 2.5rem;
+}
 .mt-16{
   margin-top: 4rem;
 }
@@ -578,9 +581,6 @@ video {
 }
 .mt-9{
   margin-top: 2.25rem;
-}
-.mt-10{
-  margin-top: 2.5rem;
 }
 .line-clamp-2{
   overflow: hidden;
@@ -817,6 +817,10 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-right{
+  -o-object-position: right;
+     object-position: right;
+}
 .p-1{
   padding: 0.25rem;
 }
@@ -897,6 +901,9 @@ video {
 }
 .pt-24{
   padding-top: 6rem;
+}
+.pl-12{
+  padding-left: 3rem;
 }
 .text-center{
   text-align: center;

@@ -6,6 +6,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
 import Image from 'next/image';
+import { useAuth } from "../../hooks/useAuth";
 
 interface NavigationItem {
     name: string;
@@ -28,6 +29,8 @@ function classNames(...classes: string[]) {
 const Navbar = () => {
 
     const [isOpen, setIsOpen] = React.useState(false);
+
+    const { user, signInWithGoogle } = useAuth();
 
     return (
         <Disclosure as="nav" className="navbar">
@@ -73,7 +76,17 @@ const Navbar = () => {
 
                             </div>
 
-                            {/*<Signindialog />*/}
+                            {user ? (
+                                <img
+                                    src={user.photoURL || ""}
+                                    alt="user"
+                                    className="rounded-full w-10 h-10"
+                                />
+                            ) : (
+                                <a onClick={signInWithGoogle} className="cursor-pointer">
+                                    تسجيل الدخول
+                                </a>
+                            )}
 
                         </div>
 

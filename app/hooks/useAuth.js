@@ -8,7 +8,7 @@ export function useAuth() {
 
   // مراقبة حالة تسجيل الدخول
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((currentUser: SetStateAction<User | null>) => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
     });
 

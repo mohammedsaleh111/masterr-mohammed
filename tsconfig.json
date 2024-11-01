@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/firebase.js", "app/registration/page.jsx", "app/hooks/useAuth.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/firebase.js", "app/registration/page.tsx", "app/hooks/useAuth.ts"],
   "exclude": ["node_modules"]
 }

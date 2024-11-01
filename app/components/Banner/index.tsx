@@ -22,7 +22,7 @@ const Banner = () => {
                             </h1>
                         </Fade>
                         <Fade direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
-                            <p className='text-grey lg:text-lg font-normal mb-10 lg:text-start text-center'>عشرين عاما من الخبرة في تدريب الكونغ فو والتشي كونغ بشقيه الجسدي والروحاني وما يندرج تحتهما من أقسام وقد تتلمذ علي يد نخبة من أفضل علماء الطب الصيني والفنون القتالية والروحية وقد خرج من بين يديه آلاف الطلاب من ابطال عالم وأعلام يقتدي بها في كافة المجالات</p>
+                            <p className='text-grey lg:text-lg font-normal mb-10 lg:text-start text-center'>أكثر من ثلاثين عاما من الخبرة في تدريب الكونغ فو والتشي كونغ بشقيه الجسدي والروحاني وما يندرج تحتهما من أقسام وقد تتلمذ علي يد نخبة من أفضل علماء الطب الصيني والفنون القتالية والروحية من اساتذة الصين وقد خرج من بين يديه آلاف الطلاب من ابطال عالم وأعلام يقتدي بها في كافة المجالات</p>
                         </Fade>
                         <Fade direction={'up'} delay={1000} cascade damping={1e-1} triggerOnce={true}>
                             <div className='md:flex align-middle justify-center lg:justify-start'>

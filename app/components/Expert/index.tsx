@@ -1,5 +1,4 @@
 "use client"
-import Slider from "react-slick";
 import React, { Component } from "react";
 import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
@@ -46,54 +45,8 @@ const postData: DataType[] = [
     },
 ]
 
-// CAROUSEL SETTINGS
 
-
-export default class MultipleItems extends Component {
-
-    render() {
-        const settings = {
-            dots: false,
-            infinite: true,
-            slidesToShow: 3,
-            // centerMode: true,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: false,
-            speed: 4000,
-            autoplaySpeed: 2000,
-            cssEase: "linear",
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 450,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: false
-                    }
-                }
-            ]
-        };
-
+export default function MultipleItems () {
 
         return (
             <div className="flex py-10 sm:py-20 bg-darkpink" id="expert-section">
@@ -128,5 +81,4 @@ export default class MultipleItems extends Component {
             </div>
 
         );
-    }
 }

@@ -75,10 +75,9 @@ const RegistrationPage = () => {
         "XNb6U8l6Pb57-H3K9"
       );
 
-      alert("تم إرسال البريد الإلكتروني بنجاح!");
+      alert("تم إرسال طلب التواصل بنجاح!");
     } catch (error) {
       console.error("خطأ أثناء إرسال البريد الإلكتروني:", error);
-      alert("فشل في إرسال البريد الإلكتروني.");
     }
   };
 
@@ -107,7 +106,7 @@ const RegistrationPage = () => {
       }
 
       await sendEmailToTrainer();
-      alert("تم التواصل بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع لبدء التدريب.");
+      alert("تم التواصل بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع علي رقم الواتساب لبدء التدريب.");
     } catch (error) {
       console.error("خطأ أثناء حفظ بيانات التمرين:", error);
       alert("حدث خطأ. حاول مرة أخرى.");
@@ -149,6 +148,7 @@ const RegistrationPage = () => {
             onChange={handlePhoneChange}
             placeholder="ادخل رقم الواتس بدون رمز البلد"
             inputProps={{
+              type: "tel",
               name: "userPhone",
               required: true,
               className: "border border-gray-300 p-2 rounded-md text-black",

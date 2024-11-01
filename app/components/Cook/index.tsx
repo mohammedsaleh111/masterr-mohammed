@@ -5,9 +5,9 @@ import { useAuth } from "../../hooks/useAuth";
 import Link from 'next/link';
 
 
-const Cook = () => {
+const ConnectInfo = () => {
 
-    const {user, signInWithGoogle} = useAuth();
+    const { user, signInWithGoogle } = useAuth();
 
     return (
         <div className='relative' id="cook-section">
@@ -38,7 +38,7 @@ const Cook = () => {
                                 سيتواصل معك ماستر محمد مباشرة لارشادك الي نظام التدريب المخخص لك مع شرح دقيق لكل تمرين ودعم مباشر لدراسة النتائج....
                             </p>
                             <div className='flex align-middle justify-center md:justify-start'>
-                            {  user ? <Link className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>) }
+                                {user ? <Link className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>)}
                             </div>
                         </Fade>
                     </div>
@@ -52,4 +52,4 @@ const Cook = () => {
     )
 }
 
-export default Cook;
+export default ConnectInfo;

@@ -1,6 +1,6 @@
 import Banner from './components/Banner/index';
-import Features from './components/Work/index';
-import Cook from './components/Cook/index';
+import Features from './components/Futures/index';
+import ConnectInfo from './components/Cook/index';
 import Expert from './components/Expert/index';
 import Gallery from './components/Gallery/index';
 import Newsletter from './components/Newsletter/Newsletter';
@@ -12,7 +12,7 @@ export default function Home() {
     <main className='bg-lightpink '>
       <Banner />
       <Features />
-      <Cook />
+      <ConnectInfo />
       <Expert />
       <Gallery />
       {/*<Newsletter />*/}

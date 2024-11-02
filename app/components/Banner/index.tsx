@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Fade } from "react-awesome-reveal";
 import Link from 'next/link';
 import { useAuth } from "../../hooks/useAuth";
-import { useRouter } from 'next/router';
+import checkUserData from "../../hooks/checkUserData";
 import { db } from "../../../lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -13,19 +13,7 @@ const Banner = () => {
 
     const { user, signInWithGoogle } = useAuth();
 
-    const [userExists, setUserExists] = useState(false);
-
-    useEffect(() => {
-        const checkUserData = async () => {
-            if (user) {
-                const userRef = doc(db, "users", user.uid);
-                const userDoc = await getDoc(userRef);
-                setUserExists(userDoc.exists());
-            }
-        };
-
-        checkUserData();
-    }, [user]);
+    const userExists = checkUserData();
 
     return (
         <div id="home-section" className='bg-lightpink'>
@@ -56,7 +44,7 @@ const Banner = () => {
                                         </button>
                                     ) : (
                                         <Link className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6" href="/registration">
-                                                تواصل مع الماستر
+                                            تواصل مع الماستر
                                         </Link>
                                     )
                                 ) : (

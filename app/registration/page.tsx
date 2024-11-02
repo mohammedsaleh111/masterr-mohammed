@@ -102,6 +102,7 @@ const RegistrationPage = () => {
           goal: formData.goal,
           bloodType: formData.bloodType,
           medicalHistory: formData.medicalHistory,
+          isSeen: false, // إضافة الحقل isSeen
         });
       }
 

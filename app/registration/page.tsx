@@ -103,6 +103,7 @@ const RegistrationPage = () => {
           bloodType: formData.bloodType,
           medicalHistory: formData.medicalHistory,
           isSeen: false, // إضافة الحقل isSeen
+          sendDataAt: new Date().toISOString() // إضافة حقل submissionDate
         });
       }
 

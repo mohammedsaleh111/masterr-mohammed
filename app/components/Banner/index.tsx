@@ -1,19 +1,11 @@
 "use client"
 import Image from 'next/image';
 import { Fade } from "react-awesome-reveal";
-import Link from 'next/link';
-import { useAuth } from "../../hooks/useAuth";
 import checkUserData from "../../hooks/checkUserData";
-import { db } from "../../../lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import CustomButton from '../CustomButton';
 
 
 const Banner = () => {
-
-    const { user, signInWithGoogle } = useAuth();
-
-    const userExists = checkUserData();
 
     return (
         <div id="home-section" className='bg-lightpink'>
@@ -31,33 +23,7 @@ const Banner = () => {
                             <p className='text-grey lg:text-lg font-normal mb-10 lg:text-start text-center'>أكثر من ثلاثين عاما من الخبرة في تدريب الكونغ فو والتشي كونغ بشقيه الجسدي والروحاني وما يندرج تحتهما من أقسام وقد تتلمذ علي يد نخبة من أفضل علماء الطب الصيني والفنون القتالية والروحية من اساتذة الصين وقد خرج من بين يديه آلاف الطلاب من ابطال عالم وأعلام يقتدي بها في كافة المجالات</p>
                         </Fade>
                         <Fade direction={'up'} delay={1000} cascade damping={1e-1} triggerOnce={true}>
-                            <div className='md:flex align-middle justify-center lg:justify-start'>
-
-
-                                {user ? (
-                                    userExists ? (
-                                        <button
-                                            className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
-                                            onClick={() => alert("تم إرسال بياناتك بالفعل إلى المدرب!")}
-                                        >
-                                            تواصل مع الماستر
-                                        </button>
-                                    ) : (
-                                        <Link className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6" href="/registration">
-                                            تواصل مع الماستر
-                                        </Link>
-                                    )
-                                ) : (
-                                    <button
-                                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
-                                        onClick={signInWithGoogle}
-                                    >
-                                        سجل للتواصل
-                                    </button>
-                                )}
-
-
-                            </div>
+                            <CustomButton />
                         </Fade>
                     </div>
 

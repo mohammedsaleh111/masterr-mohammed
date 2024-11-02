@@ -1,13 +1,12 @@
 "use client"
 import Image from 'next/image';
 import { Fade } from "react-awesome-reveal";
-import { useAuth } from "../../hooks/useAuth";
 import Link from 'next/link';
+import CustomButton from '../CustomButton';
 
 
 const ConnectInfo = () => {
 
-    const { user, signInWithGoogle } = useAuth();
 
     return (
         <div className='relative' id="cook-section">
@@ -37,9 +36,8 @@ const ConnectInfo = () => {
                             <p className='text-grey md:text-lg font-normal mb-10 text-start mt-1'>
                                 سيتواصل معك ماستر محمد مباشرة لارشادك الي نظام التدريب المخخص لك مع شرح دقيق لكل تمرين ودعم مباشر لدراسة النتائج....
                             </p>
-                            <div className='flex align-middle justify-center md:justify-start'>
-                                {user ? <Link className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>)}
-                            </div>
+                            <CustomButton />
+
                         </Fade>
                     </div>
 

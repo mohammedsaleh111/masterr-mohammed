@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { useAuth } from "../../hooks/useAuth";
+import CustomButton from "../CustomButton";
 
 
 interface NavigationItem {
@@ -23,8 +23,6 @@ function classNames(...classes: string[]) {
 
 const Data = () => {
 
-    const { user, signInWithGoogle } = useAuth();
-
     return (
         <div className="rounded-md max-w-sm w-full mx-auto">
             <div className="flex-1 space-y-4 py-1">
@@ -44,7 +42,8 @@ const Data = () => {
                             </Link>
                         ))}
                         <br />
-                        {  user ? <Link className='text-l w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>) }
+                        
+                        <CustomButton />
 
                     </div>
                 </div>

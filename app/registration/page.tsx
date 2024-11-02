@@ -107,6 +107,7 @@ const RegistrationPage = () => {
 
       await sendEmailToTrainer();
       alert("تم التواصل بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع علي رقم الواتساب لبدء التدريب.");
+      window.location.href = "/";
     } catch (error) {
       console.error("خطأ أثناء حفظ بيانات التمرين:", error);
       alert("حدث خطأ. حاول مرة أخرى.");
@@ -114,14 +115,14 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 bg-gray-100 min-h-screen text-right">
       <div className="bg-white rounded-lg shadow-md p-6 max-w-lg mx-auto">
         <h2 className="text-2xl font-semibold text-center mb-4">تسجيل شراء تمرين</h2>
         <p className="text-gray-700">الاسم: {user?.displayName || "لم يتم تسجيل الدخول"}</p>
         <p className="text-gray-700">البريد الإلكتروني: {user?.email || "لم يتم تسجيل الدخول"}</p>
 
         <form className="flex flex-col" onSubmit={(e) => { e.preventDefault(); submitForm(); }}>
-          <label className="mt-4">الهدف من التمرين:</label>
+          <label className="mt-4">: أهدافك من ممارسة التشي كونغ</label>
           <input
             type="text"
             name="goal"
@@ -131,7 +132,7 @@ const RegistrationPage = () => {
             className="border border-gray-300 p-2 rounded-md"
           />
 
-          <label className="mt-4">العمر:</label>
+          <label className="mt-4">: العمر</label>
           <input
             type="number"
             name="age"
@@ -141,22 +142,7 @@ const RegistrationPage = () => {
             className="border border-gray-300 p-2 rounded-md"
           />
 
-          <label className="mt-4">رقم الواتس:</label>
-          <PhoneInput
-            country={"eg"}
-            value={formData.userPhone}
-            onChange={handlePhoneChange}
-            placeholder="ادخل رقم الواتس بدون رمز البلد"
-            inputProps={{
-              type: "tel",
-              name: "userPhone",
-              required: true,
-              className: "border border-gray-300 p-2 rounded-md text-black",
-            }}
-            enableSearch={true}
-          />
-
-          <label className="mt-4">الجنس:</label>
+          <label className="mt-4">: الجنس</label>
           <select
             name="gender"
             value={formData.gender}
@@ -169,7 +155,7 @@ const RegistrationPage = () => {
             <option value="female">أنثى</option>
           </select>
 
-          <label className="mt-4">مستوى النشاط:</label>
+          <label className="mt-4">: مستوى النشاط</label>
           <select
             name="activityLevel"
             value={formData.activityLevel}
@@ -183,7 +169,7 @@ const RegistrationPage = () => {
             <option value="high">مرتفع</option>
           </select>
 
-          <label className="mt-4">نوع الدم:</label>
+          <label className="mt-4">: فصيلة الدم</label>
           <select
             name="bloodType"
             value={formData.bloodType}
@@ -198,7 +184,7 @@ const RegistrationPage = () => {
             <option value="O">O</option>
           </select>
 
-          <label className="mt-4">التاريخ المرضي :</label>
+          <label className="mt-4">: التاريخ المرضي</label>
           <input
             type="text"
             name="medicalHistory"
@@ -206,6 +192,24 @@ const RegistrationPage = () => {
             onChange={handleInputChange}
             required
             className="border border-gray-300 p-2 rounded-md"
+          />
+
+          <label className="mt-4">: رقم الواتس</label>
+          <PhoneInput
+            country={"eg"}
+            value={formData.userPhone}
+            onChange={handlePhoneChange}
+            placeholder="ادخل رقم الواتس بدون رمز البلد"
+            inputProps={{
+              type: "tel",
+              name: "userPhone",
+              required: true,
+              className: "border border-gray-300 p-2  rounded-md text-black",
+            }}
+            enableSearch={true}
+            disableCountryGuess={true}
+            disableCountryCode={true} // تعطيل كود الدولة الافتراضي
+            disableDropdown={false} // ترك خاصية البحث عن الدول مفعلة
           />
 
 

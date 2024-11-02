@@ -3,11 +3,29 @@ import Image from 'next/image';
 import { Fade } from "react-awesome-reveal";
 import Link from 'next/link';
 import { useAuth } from "../../hooks/useAuth";
+import { useRouter } from 'next/router';
+import { db } from "../../../lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useEffect, useState } from "react";
 
 
 const Banner = () => {
 
     const { user, signInWithGoogle } = useAuth();
+
+    const [userExists, setUserExists] = useState(false);
+
+    useEffect(() => {
+        const checkUserData = async () => {
+            if (user) {
+                const userRef = doc(db, "users", user.uid);
+                const userDoc = await getDoc(userRef);
+                setUserExists(userDoc.exists());
+            }
+        };
+
+        checkUserData();
+    }, [user]);
 
     return (
         <div id="home-section" className='bg-lightpink'>
@@ -26,7 +44,31 @@ const Banner = () => {
                         </Fade>
                         <Fade direction={'up'} delay={1000} cascade damping={1e-1} triggerOnce={true}>
                             <div className='md:flex align-middle justify-center lg:justify-start'>
-                                {user ? <Link className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' href='../registration'> تواصل مع الماستر </Link> : (<button className='text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6' onClick={signInWithGoogle}> سجل للتواصل </button>)}
+
+
+                                {user ? (
+                                    userExists ? (
+                                        <button
+                                            className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                                            onClick={() => alert("تم إرسال بياناتك بالفعل إلى المدرب!")}
+                                        >
+                                            تواصل مع الماستر
+                                        </button>
+                                    ) : (
+                                        <Link className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6" href="/registration">
+                                                تواصل مع الماستر
+                                        </Link>
+                                    )
+                                ) : (
+                                    <button
+                                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                                        onClick={signInWithGoogle}
+                                    >
+                                        سجل للتواصل
+                                    </button>
+                                )}
+
+
                             </div>
                         </Fade>
                     </div>

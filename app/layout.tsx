@@ -4,8 +4,8 @@ import Footer from './components/Footer/Footer';
 
 
 export const metadata = {
-  title: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية خبير التشي كونغ',
-  description: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية خبير التشي كونغ',
+  title: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية لتدريب التشي كونغ',
+  description: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية لتدريب التشي كونغ',
 }
 
 

@@ -9,9 +9,8 @@ import { useAuth } from "../hooks/useAuth";
 const checkUserData = () => {
 
     const [userExists, setUserExists] = useState(false);
-    const [reviewExists, setReviewExists] = useState(false);
 
-    const { user, signInWithGoogle } = useAuth();
+    const { user } = useAuth();
 
 
     useEffect(() => {
@@ -26,19 +25,8 @@ const checkUserData = () => {
         checkUserData();
     }, [user]);
 
-    useEffect(() => {
-        const checkUserReview = async () => {
-            if (user) {
-                const userRef = doc(db, "reviews", user.uid);
-                const userDoc = await getDoc(userRef);
-                setUserExists(userDoc.exists());
-            }
-        };
 
-        checkUserReview();
-    }, [user]);
-
-    return {userExists ,reviewExists};
+    return userExists;
 };
 
 export default checkUserData;

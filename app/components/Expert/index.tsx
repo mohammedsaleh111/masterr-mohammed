@@ -4,14 +4,11 @@ import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import { useAuth } from "../../hooks/useAuth";
-import checkUserData from "../../hooks/checkUserData";
+import checkReviewData from "../../hooks/checkReviewData";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 
-
-
 // CAROUSEL DATA
-
 interface DataType {
     profession: string;
     name: string;
@@ -55,7 +52,7 @@ const postData: DataType[] = [
 export default function MultipleItems() {
 
     const { user, signInWithGoogle } = useAuth();
-    const { userExists, reviewExists } = checkUserData();
+    const reviewExists = checkReviewData();
 
     const submitForm = async () => {
         try {
@@ -108,7 +105,7 @@ export default function MultipleItems() {
                     </div>)}
                 </div>
 
-                {user? !reviewExists? <div className="flex justify-center  items-center mt-9">
+                {user? reviewExists? <div className="flex justify-center  items-center mt-9">
                      
                 </div> : <div className="flex flex-col justify-center  items-center mt-9 gap-5">
                     <input className="border-black border-2 rounded-full py-5 px-6" type="text" />

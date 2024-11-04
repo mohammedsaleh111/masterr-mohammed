@@ -93,6 +93,7 @@ const RegistrationPage = () => {
 
       if (!userDoc.exists()) {
         await setDoc(userRef, {
+          userId: user?.uid,
           name: user.displayName,
           email: user.email,
           userPhone: formData.userPhone,

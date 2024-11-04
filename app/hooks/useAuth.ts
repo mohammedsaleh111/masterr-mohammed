@@ -33,5 +33,5 @@ export function useAuth() {
     }
   };
 
-  return { user, signInWithGoogle };
+  return { user, signInWithGoogle, auth };
 }

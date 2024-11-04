@@ -13,6 +13,7 @@ const navigation: NavigationItem[] = [
     { name: 'المقدمة', href: '#home-section', current: false },
     { name: 'مزايا التدريب', href: '#about-section', current: false },
     { name: 'طريقة التدريب', href: '#cook-section', current: false },
+    { name: 'اراء المتدربين', href: '#expert-section', current: false },
     { name: 'معرض الصور', href: '#gallery-section', current: false },
 ]
 

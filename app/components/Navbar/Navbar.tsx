@@ -45,13 +45,13 @@ const Navbar = () => {
 
                                 <Image src="/images/Logo/icon.png" alt="logo" width={36} height={36} />
                                 <Link href="/" className='text-2xl font-semibold text-black ml-4'>
-                                    اسم الموقع.
+                                    أكاديمية التشي كونغ
                                 </Link>
                             </div>
                             <div className="hidden sm:flex flex-shrink-0 items-center border-right">
                                 <Image src="/images/Logo/icon.png" alt="logo" width={56} height={56} />
                                 <Link href="/" className='text-2xl font-semibold text-black ml-4'>
-                                    أسم الموقع.
+                                أكاديمية التشي كونغ
                                 </Link>
                             </div>
 

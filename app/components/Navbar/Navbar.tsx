@@ -44,13 +44,13 @@ const Navbar = () => {
                             <div className="flex sm:hidden flex-shrink-0 items-center border-right">
 
                                 <Image src="/images/Logo/icon.png" alt="logo" width={36} height={36} />
-                                <Link href="/" className='text-2xl font-semibold text-black ml-4'>
+                                <Link href="/" className='text-lg sm:text-2xl lg:text-2xl font-semibold text-black ml-4'>
                                     أكاديمية التشي كونغ
                                 </Link>
                             </div>
                             <div className="hidden sm:flex flex-shrink-0 items-center border-right">
                                 <Image src="/images/Logo/icon.png" alt="logo" width={56} height={56} />
-                                <Link href="/" className='text-xl sm:text-2xl lg:text-2xl font-semibold text-black ml-4'>
+                                <Link href="/" className='text-lg sm:text-2xl lg:text-2xl font-semibold text-black ml-2'>
                                 أكاديمية التشي كونغ
                                 </Link>
                             </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
 
                             </div>
 
-                            <div className='ml-24'>
+                            <div className='ml-12'>
                                 {user ? (
                                     <img
                                         src={user.photoURL || ""}
@@ -84,7 +84,7 @@ const Navbar = () => {
                                         className="rounded-full w-10 h-10"
                                     />
                                 ) : (
-                                    <a onClick={signInWithGoogle} className="cursor-pointer">
+                                    <a onClick={signInWithGoogle} className="cursor-pointer hover:text-lg">
                                         تسجيل الدخول
                                     </a>
                                 )}

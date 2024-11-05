@@ -6,44 +6,35 @@ import CustomButton from "../CustomButton";
 interface NavigationItem {
     name: string;
     href: string;
-    current: boolean;
 }
 
 const navigation: NavigationItem[] = [
-    { name: 'المقدمة', href: '#home-section', current: false },
-    { name: 'مزايا التدريب', href: '#about-section', current: false },
-    { name: 'طريقة التدريب', href: '#cook-section', current: false },
-    { name: 'اراء المتدربين', href: '#expert-section', current: false },
-    { name: 'معرض الصور', href: '#gallery-section', current: false },
+    { name: 'المقدمة', href: '#home-section' },
+    { name: 'مزايا التدريب', href: '#about-section' },
+    { name: 'طريقة التدريب', href: '#cook-section' },
+    { name: 'اراء المتدربين', href: '#expert-section' },
+    { name: 'معرض الصور', href: '#gallery-section' },
 ]
 
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
-
-const Data = () => {
+export default function Data () {
 
     return (
         <div className="rounded-md max-w-sm w-full mx-auto">
             <div className="flex-1 space-y-4 py-1">
-                <div className="sm:block">
-                    <div className="space-y-1 px-5 pt-2 pb-3">
+                <div>
+                    <div className="flex flex-col space-y-1 px-5 pt-2 pb-3">
                         {navigation.map((item) => (
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={classNames(
-                                    item.current ? 'bg-gray-900 text-purple' : 'text-black hover:bg-gray-700 hover:text-purple',
-                                    'block  py-2 rounded-md text-base font-medium'
-                                )}
-                                aria-current={item.current ? 'page' : undefined}
+                                className='text-black py-2 rounded-md text-base font-medium hover:bg-gray-900'
                             >
                                 {item.name}
                             </Link>
                         ))}
                         <br />
-                        
+
                         <CustomButton />
 
                     </div>
@@ -52,5 +43,3 @@ const Data = () => {
         </div>
     );
 }
-
-export default Data;

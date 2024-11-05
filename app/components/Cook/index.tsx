@@ -16,7 +16,7 @@ const ConnectInfo = () => {
                     <Image src={'/images/Cook/contact.png'} alt="burger-image" width={300} height={622} />
                 </div>
 
-                <div className='grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5'>
+                <div className='flex flex-col sm:flex-row lg:flex-row my-16 space-x-5'>
 
                     <div className='col-span-6 flex justify-start'>
                         <Image className="inner-img rounded-3xl" src="/images/Cook/master.jpg" alt="nothing" width={400} height={608} />
@@ -24,10 +24,10 @@ const ConnectInfo = () => {
 
 
                     <div className='col-span-6 flex flex-col justify-center'>
-                        <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
-                            <h2 className='text-pink text-2xl font-normal mb-3 uppercase text-start'> نظام التدريب </h2>
+                        <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={false}>
+                            <h2 className='text-pink text-3xl font-normal mb-3 uppercase text-center'> نظام التدريب </h2>
                         </Fade>
-                        <Fade direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
+                        <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
                             <h3 className="text-3xl lg:text-5xl font-semibold text-black text-start">
                                 ابدأ التدريب اون لاين مع ماستر محمد .
                             </h3>

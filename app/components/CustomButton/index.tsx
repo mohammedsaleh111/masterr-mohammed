@@ -17,7 +17,7 @@ export default function CustomButton() {
             {user ? (
                 userExists ? (
                     <button
-                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6 hover:shadow-xl shadow-black drop-shadow-xl"
                         onClick={() => alert("تم إرسال بياناتك بالفعل إلى المدرب!")}
                     >
                         تواصل مع الماستر
@@ -29,7 +29,7 @@ export default function CustomButton() {
                 )
             ) : (
                 <button
-                    className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                    className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6 hover:shadow-xl shadow-black drop-shadow-xl"
                     onClick={signInWithGoogle}
                 >
                     سجل للتواصل

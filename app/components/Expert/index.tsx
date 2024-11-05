@@ -18,7 +18,7 @@ interface DataType {
 }
 
 export default function MultipleItems() {
-    const { user, signInWithGoogle } = useAuth();
+    const { user } = useAuth();
     const reviewExists = useCheckReviewData(); // استدعاء الـ Hook المخصص
     const [reviewText, setReviewText] = useState('');
     const [reviewData, setReviewData] = useState<DataType[]>([]);
@@ -108,7 +108,7 @@ export default function MultipleItems() {
         <div className="flex py-10 sm:py-20 bg-darkpink" id="expert-section">
             <div className="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8">
                 <div className="text-center">
-                    <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce>
+                    <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={false}>
                         <h2 className="text-pink text-4xl font-bold mb-3 tracking-widest uppercase">
                             اراء المتدربين
                         </h2>

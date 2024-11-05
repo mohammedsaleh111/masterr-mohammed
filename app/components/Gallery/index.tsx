@@ -8,10 +8,10 @@ const Gallery = () => {
         <div id="gallery-section">
             <div className='mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24'>
                 <div className="text-center">
-                    <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
-                        <h2 className='text-pink text-lg font-normal mb-3 tracking-widest uppercase ls-51'> معرض الصور </h2>
+                    <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={false}>
+                        <h2 className='text-pink text-2xl font-normal mb-3 tracking-widest'> معرض الصور </h2>
                     </Fade>
-                    <Fade direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
+                    <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
                         <h3 className="text-3xl lg:text-5xl font-semibold text-black">
                           صور من تدريب القوة.
                         </h3>

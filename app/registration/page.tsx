@@ -26,6 +26,7 @@ const RegistrationPage = () => {
   }
 
   const [user, setUser] = useState<User | null>(null);
+  const [buttonText,setButtonText] = useState('تواصل الان')
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -88,6 +89,8 @@ const RegistrationPage = () => {
         return;
       }
 
+      setButtonText('جاري ارسال البيانات...');
+
       const userRef = doc(db, "users", user.uid);
       const userDoc = await getDoc(userRef);
 
@@ -95,6 +98,7 @@ const RegistrationPage = () => {
         await setDoc(userRef, {
           userId: user?.uid,
           name: user.displayName,
+          image:user.photoURL,
           email: user.email,
           userPhone: formData.userPhone,
           age: formData.age,
@@ -217,7 +221,7 @@ const RegistrationPage = () => {
 
 
           <button type="submit" className="mt-10 text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6">
-            تواصل الآن
+            {buttonText}
           </button>
         </form>
       </div>

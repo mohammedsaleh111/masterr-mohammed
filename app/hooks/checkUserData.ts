@@ -1,7 +1,7 @@
 // hooks/useUserData.js
 import { useEffect, useState } from "react";
 import { db } from "../../lib/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDocs, query, where } from "firebase/firestore";
 import { useAuth } from "../hooks/useAuth";
 
 
@@ -16,9 +16,10 @@ const checkUserData = () => {
     useEffect(() => {
         const checkUserData = async () => {
             if (user) {
-                const userRef = doc(db, "users", user.uid);
-                const userDoc = await getDoc(userRef);
-                setUserExists(userDoc.exists());
+                const userRef = collection(db, "users");
+                const q = query(userRef, where("userId", "==", user.uid));
+                const querySnapshot = await getDocs(q);
+                setUserExists(!querySnapshot.empty);
             }
         };
 

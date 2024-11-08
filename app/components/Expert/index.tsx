@@ -6,6 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import { useAuth } from "../../hooks/useAuth";
 import useCheckReviewData from "../../hooks/checkReviewData";
+import useCheckUserData from "../../hooks/checkUserData";
 import { getDocs, addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 
@@ -20,6 +21,7 @@ interface DataType {
 export default function MultipleItems() {
     const { user } = useAuth();
     const reviewExists = useCheckReviewData(); // استدعاء الـ Hook المخصص
+    const dataExists = useCheckUserData(); // استدعاء الـ Hook المخصص
     const [reviewText, setReviewText] = useState('');
     const [reviewData, setReviewData] = useState<DataType[]>([]);
     const [canSubmitReview, setCanSubmitReview] = useState(false);
@@ -42,33 +44,33 @@ export default function MultipleItems() {
                         } as DataType;
                     })
                     .filter((review) => review.agree); // تصفية التعليقات التي تحتوي على agree = true
-    
+
                 setReviewData(reviews);
             } catch (error) {
                 console.error("Error fetching reviews:", error);
             }
         };
-    
+
         const checkRegistrationTime = async () => {
             if (user) {
                 const userDocRef = doc(db, "users", user.uid);
                 const userDoc = await getDoc(userDocRef);
-    
+
                 if (userDoc.exists()) {
                     const userData = userDoc.data();
                     const registrationTime = new Date(userData.sendDataAt);
                     const currentTime = new Date();
                     const timeDifference = (currentTime.getTime() - registrationTime.getTime()) / 1000;
-    
+
                     setCanSubmitReview(timeDifference >= 60);
                 }
             }
         };
-    
+
         fetchReviews();
         checkRegistrationTime();
     }, [user]);
-    
+
 
     const handleReviewSubmit = async () => {
         if (!reviewText.trim()) {
@@ -131,24 +133,34 @@ export default function MultipleItems() {
                     ))}
                 </div>
 
+                <br />
+
                 {user ? (
-                    reviewExists ? null : (
-                        <div className="flex flex-col justify-center items-center mt-9 gap-5">
-                            <input
-                                className="border-black border-2 rounded-full py-5 px-6"
-                                type="text"
-                                placeholder="Write your review..."
-                                value={reviewText}
-                                onChange={(e) => setReviewText(e.target.value)}
-                            />
-                            <button
-                                onClick={handleReviewSubmit}
-                                className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                    reviewExists ? null :
+                        !dataExists ?
+                            <Link
+                                className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14"
+                                href={"../registration"}
                             >
-                                اكتب رأيك
-                            </button>
-                        </div>
-                    )
+                                اشتري الخدمة لتكتب رأيك
+                            </Link> :
+                            (
+                                <div className="flex flex-col justify-center items-center mt-9 gap-5">
+                                    <input
+                                        className="border-black border-2 rounded-full py-5 px-6"
+                                        type="text"
+                                        placeholder="Write your review..."
+                                        value={reviewText}
+                                        onChange={(e) => setReviewText(e.target.value)}
+                                    />
+                                    <button
+                                        onClick={handleReviewSubmit}
+                                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                                    >
+                                        اكتب رأيك
+                                    </button>
+                                </div>
+                            )
                 ) : (
                     <div className="flex justify-center items-center mt-9">
                         <button className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6">

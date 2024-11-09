@@ -9,8 +9,8 @@ const ConnectInfo = () => {
 
 
     return (
-        <div className='relative' id="cook-section">
-            <div className="mx-auto max-w-7xl lg:pt-20 sm:pb-24 px-6">
+        <div className='relative bg-[skyblue] bg-opacity-10' id="cook-section">
+            <div className="mx-auto max-w-7xl lg:pt-10 sm:pb-24 px-6">
 
                 <div className='absolute right-0 bottom-[5%] hidden lg:block'>
                     <Image src={'/images/Cook/contact.png'} alt="burger-image" width={300} height={622} />
@@ -25,7 +25,7 @@ const ConnectInfo = () => {
 
                     <div className='col-span-6 flex flex-col justify-center'>
                         <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={false}>
-                            <h2 className='text-pink text-3xl font-normal mb-3 uppercase text-center'> نظام التدريب </h2>
+                            <h2 className='text-pink text-4xl font-normal mb-3 uppercase text-center'> نظام التدريب </h2>
                         </Fade>
                         <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
                             <h3 className="text-3xl lg:text-5xl font-semibold text-black text-start">

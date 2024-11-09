@@ -8,10 +8,9 @@ import CustomButton from '../CustomButton';
 const Banner = () => {
 
     return (
-        <div id="home-section" className='bg-lightpink'>
-            <div className="mx-auto max-w-7xl pt-20 sm:pb-24 px-6">
+            <div id="home-section" className="mx-auto pt-10 sm:pb-12 px-6 bg-[skyblue] bg-opacity-10">
 
-                <div className='grid grid-cols-1 lg:grid-cols-12 space-x-1 gap-9'>
+                <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-12 sm:grid-cols-12'>
 
                     <div className='col-span-6 flex flex-col justify-center h-[50vh]'>
                         <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={true}>
@@ -28,14 +27,13 @@ const Banner = () => {
                     </div>
 
                     <div className='col-span-6 flex justify-center items-center mt-10'>
-                        <div className='flex bg-white p-2 gap-5 items-center bottom-10 left-10 rounded-xl relative'>
+                        <div className='flex p-2 gap-5 items-center bottom-10 left-10 rounded-xl relative'>
                             <Image className=' opacity-40' src={'/images/Logo/icon.png'} alt="pizza-image" width={500} height={500} />
                         </div>
                         <Image className=' rounded-3xl object-cover absolute' src={"/images/Banner/banner-image.png"} alt="Banner" width={250} height={250} />
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

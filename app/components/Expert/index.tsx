@@ -107,11 +107,11 @@ export default function MultipleItems() {
     };
 
     return (
-        <div className="flex py-10 sm:py-20 bg-darkpink" id="expert-section">
+        <div className="flex py-10 sm:py-10 bg-darkpink" id="expert-section">
             <div className="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8">
                 <div className="text-center">
                     <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={false}>
-                        <h2 className="text-pink text-4xl font-bold mb-3 tracking-widest uppercase">
+                        <h2 className="text-pink text-4xl font-normal mb-3 uppercase">
                             اراء المتدربين
                         </h2>
                     </Fade>
@@ -155,7 +155,7 @@ export default function MultipleItems() {
                                     />
                                     <button
                                         onClick={handleReviewSubmit}
-                                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6"
+                                        className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14"
                                     >
                                         اكتب رأيك
                                     </button>
@@ -163,7 +163,7 @@ export default function MultipleItems() {
                             )
                 ) : (
                     <div className="flex justify-center items-center mt-9">
-                        <button className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14 mr-6">
+                        <button className="text-xl w-full md:w-auto font-medium rounded-full text-white py-5 px-6 bg-pink lg:px-14">
                             <Link href="">
                                 سجل لتكتب رأيك
                             </Link>

@@ -5,11 +5,10 @@ import { Fade } from "react-awesome-reveal";
 
 const Gallery = () => {
     return (
-        <div id="gallery-section">
-            <div className='mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24'>
+            <div id='gallery-section' className='mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24 bg-[skyblue] bg-opacity-10'>
                 <div className="text-center">
                     <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={false}>
-                        <h2 className='text-pink text-2xl font-normal mb-3 tracking-widest'> معرض الصور </h2>
+                        <h2 className='text-pink text-4xl font-normal mb-3 uppercase'> معرض الصور </h2>
                     </Fade>
                     <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>
                         <h3 className="text-3xl lg:text-5xl font-semibold text-black">
@@ -43,7 +42,6 @@ const Gallery = () => {
 
                 </div>
             </div>
-        </div>
     )
 }
 

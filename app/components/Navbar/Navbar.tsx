@@ -16,6 +16,7 @@ interface NavigationItem {
 
 const navigation: NavigationItem[] = [
     { name: 'المقدمة', href: '#home-section', current: false },
+    { name: 'عن التشي كونغ', href: '#chi-section', current: false },
     { name: 'مزايا التدريب', href: '#about-section', current: false },
     { name: 'طريقة التدريب', href: '#cook-section', current: false },
     { name: 'اراء المتدربين', href: '#expert-section', current: false },
@@ -33,10 +34,10 @@ const Navbar = () => {
     const { user, signInWithGoogle } = useAuth();
 
     return (
-        <Disclosure as="nav" className="navbar">
+        <Disclosure as="nav" className="navbar bg-[green] bg-opacity-10">
             <>
-                <div className="mx-auto max-w-7xl p-3 md:p-6 lg:px-8">
-                    <div className="relative flex h-12 sm:h-20 items-center">
+                <div className="p-3 md:p-6 lg:px-8 bg-[green] bg-opacity-15">
+                    <div className="relative flex h-12 sm:h-14 lg:h-16 items-center">
                         <div className="flex flex-1 items-center sm:justify-between">
 
                             {/* LOGO */}
@@ -51,7 +52,7 @@ const Navbar = () => {
                             <div className="hidden sm:flex flex-shrink-0 items-center border-right">
                                 <Image src="/images/Logo/icon.png" alt="logo" width={56} height={56} />
                                 <Link href="/" className='text-lg sm:text-2xl lg:text-2xl font-semibold text-black ml-2'>
-                                أكاديمية التشي كونغ
+                                    أكاديمية التشي كونغ
                                 </Link>
                             </div>
 
@@ -64,8 +65,8 @@ const Navbar = () => {
                                             key={item.name}
                                             href={item.href}
                                             className={classNames(
-                                                item.current ? 'bg-black' : 'navlinks hover:opacity-100',
-                                                'px-3 py-4 rounded-md text-lg font-normal opacity-50 hover:text-black space-links'
+                                                item.current ? ' bg-black' : 'navlinks flex flex-row  hover:opacity-100',
+                                                ' px-3 py-4 rounded-md text-md font-normal opacity-50 hover:text-black space-links'
                                             )}
                                             aria-current={item.href ? 'page' : undefined}
                                         >

@@ -35,7 +35,7 @@ const cardData: cardDataType[] = [
 
 const Futures = () => {
     return (
-            <div className='mx-auto max-w-7xl py-10 px-6 text-right bg-darkpink' id="about-section">
+            <div className='mx-auto py-10 px-6 text-right bg-[skyblue] bg-opacity-25' id="about-section">
                 <div className='text-center ' >
                     <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={false}>
                         <h3 className='text-pink text-4xl font-normal mb-3 uppercase'>مزايا التدريب</h3>
@@ -47,7 +47,7 @@ const Futures = () => {
 
 
                 <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-5 mt-12'>
-                    <Fade direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
+                    <Fade className='bg-pink bg-opacity-20' direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
                         {cardData.map((items, i) => (
                             <div className='card-b p-8 relative rounded-3xl border h-80' key={i}>
                                 <div className='work-img-bg rounded-full flex justify-center items-center object-cover '>

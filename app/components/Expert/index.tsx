@@ -107,7 +107,7 @@ export default function MultipleItems() {
     };
 
     return (
-        <div className="flex py-10 sm:py-10 bg-darkpink" id="expert-section">
+        <div className="flex py-10 sm:py-10 bg-[skyblue] bg-opacity-25" id="expert-section">
             <div className="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8">
                 <div className="text-center">
                     <Fade direction="up" delay={200} cascade damping={1e-1} triggerOnce={false}>

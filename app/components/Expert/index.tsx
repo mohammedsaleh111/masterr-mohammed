@@ -117,7 +117,7 @@ export default function MultipleItems() {
                     </Fade>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-center items-center">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3   gap-6 justify-center items-center">
                     {reviewData.map((item) => (
                         <div key={item.userUid}>
                             <Image

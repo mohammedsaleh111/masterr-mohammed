@@ -5,12 +5,13 @@ import Expert from './components/Expert/index';
 import Gallery from './components/Gallery/index';
 import Newsletter from './components/Newsletter/Newsletter';
 import AboutChi from './components/AboutChi';
+import { bgColor } from './constants';
 
 
 
 export default function Home() {
   return (
-    <main className='bg-[green] bg-opacity-15'>
+    <main className={`bg-[${bgColor}] bg-opacity-15`}>
       <Banner />
       <AboutChi/>
       <Features />

@@ -13,13 +13,13 @@ const ConnectInfo = () => {
             <div className="mx-auto max-w-7xl lg:pt-10 sm:pb-24 px-6">
 
                 <div className='absolute right-0 bottom-[5%] hidden lg:block'>
-                    <Image src={'/images/Cook/contact.png'} alt="burger-image" width={300} height={622} />
+                    <Image src={'/images/ConnectInfo/contact.png'} alt="burger-image" width={300} height={622} />
                 </div>
 
                 <div className='flex flex-col sm:flex-row lg:flex-row my-16 space-x-5'>
 
                     <div className='col-span-6 flex justify-start'>
-                        <Image className="inner-img rounded-3xl" src="/images/Cook/master.jpg" alt="nothing" width={400} height={608} />
+                        <Image className="inner-img rounded-3xl" src="/images/ConnectInfo/master.jpg" alt="nothing" width={400} height={608} />
                     </div>
 
 

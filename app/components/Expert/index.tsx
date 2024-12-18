@@ -18,6 +18,51 @@ interface DataType {
     agree: boolean;
 }
 
+const myData: DataType[] = [
+    {
+        userUid: '1',
+        review: 'التشي كونغ ساعدني في التغلب على القلق والتوتر. أشعر الآن بتوازن داخلي وسلام نفسي جعلني أكثر إيجابية',
+        name: 'ريم الجوهري',
+        imgSrc: '/images/Expert/1.jpeg',
+        agree: true,
+    },
+    {
+        userUid: '2',
+        review: 'بعد أشهر من الممارسة، لاحظت تحسنًا في بشرتي ونشاطي العام. أصبحت أشعر وكأنني أصغر سنًا وأكثر حيوية',
+        name: 'سارة عبد الحميد',
+        imgSrc: '/images/Expert/2.jpeg',
+        agree: true,
+    },
+    {
+        userUid: '3',
+        review: 'كنت أعاني من التوتر المستمر وصعوبة في النوم. بعد شهرين من ممارسة تمارين التنفس والتشي كونغ، أصبحت أنام بعمق وأشعر براحة نفسية لم أختبرها من قبل',
+        name: 'أحمد نبيل',
+        imgSrc: '/images/Expert/3.jpeg',
+        agree: true,
+    },
+    {
+        userUid: '4',
+        review: 'كانت طاقتي منخفضة دائمًا وأشعر بالإرهاق سريعًا. الآن، بفضل التمارين، لدي طاقة مذهلة طوال اليوم وأستمتع بكل لحظة',
+        name: 'نور الهاشمي',
+        imgSrc: '/images/Expert/4.jpeg',
+        agree: true,
+    },
+    {
+        userUid: '5',
+        review: 'هذه التمارين غيّرت حياتي تمامًا! شعرت بطاقة كبيرة طوال اليوم، وأصبحت أكثر تركيزًا وإنتاجية في عملي',
+        name: 'خالد السعيد',
+        imgSrc: '/images/Expert/5.jpeg',
+        agree: true,
+    },
+    {
+        userUid: '6',
+        review: 'كنت أعاني من آلام مزمنة في الظهر، ولكن بعد المواظبة على التمارين، خفّت الآلام بشكل كبير وأصبحت أتحرك بحرية أكبر',
+        name: 'عمر الشناوي',
+        imgSrc: '/images/Expert/6.jpeg',
+        agree: true,
+    }
+];
+
 export default function MultipleItems() {
     const { user } = useAuth();
     const reviewExists = useCheckReviewData(); // استدعاء الـ Hook المخصص
@@ -117,11 +162,13 @@ export default function MultipleItems() {
                     </Fade>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3   gap-6 justify-center items-center">
-                    {reviewData.map((item) => (
-                        <div key={item.userUid}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3   gap-6 justify-center items-center">
+                    {myData.map((item) => (
+                        <div key={item.userUid}
+                        className="flex flex-col items-center justify-center text-center p-5"
+                        >
                             <Image
-                                className="rounded-full"
+                                className="rounded-full p-2"
                                 src={item.imgSrc}
                                 width={200}
                                 height={200}
@@ -135,7 +182,7 @@ export default function MultipleItems() {
 
                 <br />
 
-                {user ? (
+                {/* {user ? (
                     reviewExists ? null :
                         !dataExists ?
                             <Link
@@ -169,7 +216,7 @@ export default function MultipleItems() {
                             </Link>
                         </button>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     );

@@ -3,9 +3,9 @@ import Features from './components/Futures/index';
 import ConnectInfo from './components/ConnectInfo/index';
 import Expert from './components/Expert/index';
 import Gallery from './components/Gallery/index';
-import Newsletter from './components/Newsletter/Newsletter';
 import AboutChi from './components/AboutChi';
 import { bgColor } from './constants';
+import Footer from './components/Footer';
 
 
 
@@ -18,7 +18,7 @@ export default function Home() {
       <ConnectInfo />
       <Expert />
       <Gallery />
-      {/*<Newsletter />*/}
+      <Footer />
     </main>
   )
 }

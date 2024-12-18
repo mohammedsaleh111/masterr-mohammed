@@ -1,6 +1,9 @@
+
 import './globals.css';
 import Navbar from './components/Navbar/index';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer';
+import { usePathname } from 'next/navigation';
+import ClientNavbar from './components/ClientNavBar';
 
 
 export const metadata = {
@@ -12,15 +15,15 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+
   return (
     <html lang="en">
       <body>
-        <Navbar />
+      <ClientNavbar/>
         {children}
-        {/*<Footer />*/}
       </body>
     </html>
-  )
+  );
 }

@@ -8,13 +8,17 @@ import PhoneInput from "react-phone-input-2"; // استيراد مكتبة رق�
 import "react-phone-input-2/lib/style.css"; // استيراد التنسيقات الخاصة بالمكتبة
 
 const RegistrationPage = () => {
+
   const [formData, setFormData] = useState({
     goal: "",
     age: "",
     gender: "",
-    activityLevel: "",
+    isSporter: "",
+    sportName: "",
+    whenSport: "",
     userPhone: "",
     bloodType: "",
+    isSeek: "",
     medicalHistory: "",
   });
 
@@ -26,7 +30,7 @@ const RegistrationPage = () => {
   }
 
   const [user, setUser] = useState<User | null>(null);
-  const [buttonText,setButtonText] = useState('تواصل الان')
+  const [buttonText, setButtonText] = useState('تواصل الان')
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -64,8 +68,11 @@ const RegistrationPage = () => {
         goal: formData.goal,
         age: formData.age,
         gender: formData.gender,
-        activityLevel: formData.activityLevel,
+        isSporter: formData.isSporter,
+        sportName: formData.sportName,
+        whenSport: formData.whenSport,
         bloodType: formData.bloodType,
+        isSeek: formData.isSeek,
         medicalHistory: formData.medicalHistory,
       };
 
@@ -98,14 +105,17 @@ const RegistrationPage = () => {
         await setDoc(userRef, {
           userId: user?.uid,
           name: user.displayName,
-          image:user.photoURL,
+          image: user.photoURL,
           email: user.email,
           userPhone: formData.userPhone,
           age: formData.age,
           gender: formData.gender,
-          activityLevel: formData.activityLevel,
+          isSporter: formData.isSporter,
+          sportName: formData.sportName,
+          whenSport: formData.whenSport,
           goal: formData.goal,
           bloodType: formData.bloodType,
+          isSeek: formData.isSeek,
           medicalHistory: formData.medicalHistory,
           isSeen: false, // إضافة الحقل isSeen
           sendDataAt: new Date().toISOString() // إضافة حقل submissionDate
@@ -113,7 +123,7 @@ const RegistrationPage = () => {
       }
 
       await sendEmailToTrainer();
-      alert("تم التواصل بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع علي رقم الواتساب لبدء التدريب.");
+      alert("تم ارسال البيانات بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع علي رقم الواتساب لبدء التدريب.");
       window.location.href = "/";
     } catch (error) {
       console.error("خطأ أثناء حفظ بيانات التمرين:", error);
@@ -122,13 +132,21 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen text-right">
-      <div className="bg-white rounded-lg shadow-md p-6 max-w-lg mx-auto">
-        <h2 className="text-2xl font-semibold text-center mb-4">تسجيل شراء تمرين</h2>
-        <p className="text-gray-700">الاسم: {user?.displayName || "لم يتم تسجيل الدخول"}</p>
-        <p className="text-gray-700">البريد الإلكتروني: {user?.email || "لم يتم تسجيل الدخول"}</p>
+    <div className="p-8 bg-gray-100 flex text-right">
+      <div className="bg-white rounded-lg shadow-md p-6  mx-auto ">
+      <h2 className="text-2xl font-semibold text-center pb-9">طلب تسجيل شراء الكورس</h2>
+        <img src="/images/Registration/logo.jpeg" alt="" className=" w-[100vw] sm:w-[75vw] lg:w-[50vw] object-cover mx-auto" />
+        <br />
+        <p className=" text-2xl">
+          هام جدا
+        </p>
+        <p className="text-gray-700 pt-5 text-right">مرحبا {user?.displayName || "لم يتم تسجيل الدخول"}</p>
+        <br />
+        <p className="text-center">
+          برجاء ملئ الحقول بدقة لانه بناءا علي بياناتك سيتم تحديد نظام التدريب والتمارين المناسبة والمخصصة لك فقط وبارسالك هذه البيانات سيتم التواصل معك من قبل ماستر محمد عطية لاعطاءك اول تمرين والذي يبلغ سعره 50 دولارا فقط
+        </p>
 
-        <form className="flex flex-col" onSubmit={(e) => { e.preventDefault(); submitForm(); }}>
+        <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); submitForm(); }}>
           <label className="mt-4">: أهدافك من ممارسة التشي كونغ</label>
           <input
             type="text"
@@ -162,19 +180,56 @@ const RegistrationPage = () => {
             <option value="female">أنثى</option>
           </select>
 
-          <label className="mt-4">: مستوى النشاط</label>
+          <label className="mt-4">:  هل تمارس الرياضة </label>
           <select
-            name="activityLevel"
-            value={formData.activityLevel}
+            name="isSporter"
+            value={formData.isSporter}
             onChange={handleInputChange}
             required
             className="border border-gray-300 p-2 rounded-md"
           >
             <option value="">اختر</option>
-            <option value="low">منخفض</option>
-            <option value="moderate">متوسط</option>
-            <option value="high">مرتفع</option>
+            <option value="no">لا</option>
+            <option value="was">كنت امارس</option>
+            <option value="yes">نعم انا رياضي</option>
           </select>
+
+          <div>
+            {formData.isSporter === "yes" ? (
+              <div className="mt-4 flex flex-row gap-3">
+                <input
+                  type="text"
+                  name="sportName"
+                  value={formData.sportName}
+                  onChange={handleInputChange}
+                  required
+                  className="border border-gray-300 p-2 rounded-md"></input>
+                <label className="mt-4">: اسم الرياضة</label>
+              </div>) : null}
+
+            {formData.isSporter === "was" ? (
+              <div className="flex flex-col">
+                <div className="mt-4 flex flex-row gap-3">
+                  <input
+                    type="text"
+                    name="sportName"
+                    value={formData.sportName}
+                    onChange={handleInputChange}
+                    required
+                    className="border border-gray-300 p-2 rounded-md"></input>
+                  <label className="mt-4">: اسم الرياضة</label>
+                </div >
+                <label className="mt-4 p-3">:  منذ متي توقفت عن التمرين بالسنين</label>
+                <input
+                  type="number"
+                  name="whenSport"
+                  value={formData.whenSport}
+                  onChange={handleInputChange}
+                  required
+                  className="border border-gray-300 p-2 rounded-md"></input>
+              </div>
+            ) : null}
+          </div>
 
           <label className="mt-4">: فصيلة الدم</label>
           <select
@@ -191,15 +246,33 @@ const RegistrationPage = () => {
             <option value="O">O</option>
           </select>
 
-          <label className="mt-4">: التاريخ المرضي</label>
-          <input
-            type="text"
-            name="medicalHistory"
-            value={formData.medicalHistory}
+          <label className="mt-4">:  هل تعاني من امراض مزمنة ؟</label>
+          <select
+            name="isSeek"
+            value={formData.isSeek}
             onChange={handleInputChange}
             required
             className="border border-gray-300 p-2 rounded-md"
-          />
+          >
+            <option onInput={() => null} value="">اختر</option>
+            <option value="yes">نعم</option>
+            <option value="no">لا</option>
+          </select>
+          <div>
+            {formData.isSeek === "yes" ? (
+              <div className="mt-4 flex flex-row gap-3">
+                <input
+                  type="text"
+                  name="medicalHistory"
+                  value={formData.medicalHistory}
+                  onChange={handleInputChange}
+                  required
+                  className="border border-gray-300 p-2 rounded-md"></input>
+                <label className="mt-4">:من ماذا تعاني</label>
+              </div>
+            ) : null}
+
+          </div>
 
           <label className="mt-4">: رقم الواتس</label>
           <PhoneInput

@@ -70,7 +70,7 @@ const RegistrationPage = () => {
         gender: formData.gender,
         isSporter: formData.isSporter,
         sportName: formData.sportName,
-        whenSport: formData.whenSport,
+        whenSport: formData.whenSport || '0',
         bloodType: formData.bloodType,
         isSeek: formData.isSeek,
         medicalHistory: formData.medicalHistory,

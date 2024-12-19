@@ -69,11 +69,11 @@ const RegistrationPage = () => {
         age: formData.age,
         gender: formData.gender,
         isSporter: formData.isSporter,
-        sportName: formData.sportName,
+        sportName: formData.isSporter == 'no' ? '' : formData.isSporter == 'was' ? `كنت امارس رياضة ${formData.sportName} منذ ${formData.whenSport} من الاعوام` : formData.sportName,
         whenSport: formData.whenSport || '0',
         bloodType: formData.bloodType,
         isSeek: formData.isSeek,
-        medicalHistory: formData.medicalHistory,
+        medicalHistory: formData.isSeek == 'no' ? 'لا يوجد أمراض' : formData.medicalHistory,
       };
 
       await emailjs.send(

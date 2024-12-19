@@ -118,7 +118,7 @@ const RegistrationPage = () => {
           isSeek: formData.isSeek,
           medicalHistory: formData.medicalHistory,
           isSeen: false, // إضافة الحقل isSeen
-          sendDataAt: new Date().toISOString() // إضافة حقل submissionDate
+          sendDataAt: new Date() // إضافة حقل submissionDate
         });
       }
 

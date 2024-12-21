@@ -134,8 +134,8 @@ const RegistrationPage = () => {
   };
 
   async function sendNotification(userName: any) {
-    const oneSignalAppId = "YOUR_ONESIGNAL_APP_ID";
-    const restApiKey = "YOUR_ONESIGNAL_REST_API_KEY";
+    const oneSignalAppId = "b14f2977-d416-4715-b55c-11bfeb7412a0";
+    const restApiKey = "os_v2_app_wfhss56uczdrlnk4cg76w5asucjwzr64de6ejg4yzomjuk4ma7a5amzisxmkvxegu4feqmsrxoe3tm7uut7gwd2lwwxfffak5o7hwuy";
   
     const notificationData = {
       app_id: oneSignalAppId,

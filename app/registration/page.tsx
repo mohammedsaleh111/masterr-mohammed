@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import emailjs from "emailjs-com";
 import PhoneInput from "react-phone-input-2"; // استيراد مكتبة رقم الهاتف
 import "react-phone-input-2/lib/style.css"; // استيراد التنسيقات الخاصة بالمكتبة
+import axios from "axios";
 
 const RegistrationPage = () => {
 
@@ -123,6 +124,7 @@ const RegistrationPage = () => {
       }
 
       await sendEmailToTrainer();
+      await sendNotification(user.displayName);
       alert("تم ارسال البيانات بنجاح! سيتم التواصل معك في خلال 48 ساعة من قبل إدارة الموقع علي رقم الواتساب لبدء التدريب.");
       window.location.href = "/";
     } catch (error) {
@@ -130,6 +132,47 @@ const RegistrationPage = () => {
       alert("حدث خطأ. حاول مرة أخرى.");
     }
   };
+
+  async function sendNotification(userName: any) {
+    const oneSignalAppId = "YOUR_ONESIGNAL_APP_ID";
+    const restApiKey = "YOUR_ONESIGNAL_REST_API_KEY";
+  
+    const notificationData = {
+      app_id: oneSignalAppId,
+      included_segments: ["All"], // أو استخدم include_player_ids لاستهداف جهاز معين
+      headings: { en: "New User Registered" },
+      contents: { en: `A new user, ${userName}, has registered.` },
+    };
+  
+    try {
+      const response = await axios.post(
+        "https://onesignal.com/api/v1/notifications",
+        notificationData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Basic ${restApiKey}`,
+          },
+        }
+      );
+      console.log("Notification sent successfully:", response.data);
+    } catch (error) {
+      console.error("Error sending notification:", error);
+    }
+  }
+  
+    async function handler(req: { method: string; body: { userName: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): void; new(): any; }; }; }) {
+    if (req.method === "POST") {
+      const { userName } = req.body;
+  
+      // سجل المستخدم في Firebase أو قم بأي معالجة أخرى هنا
+      await sendNotification(userName);
+  
+      res.status(200).json({ message: "User registered and notification sent." });
+    } else {
+      res.status(405).json({ message: "Method not allowed" });
+    }
+  }
 
   return (
     <div className="p-8 bg-gray-100 flex text-right">

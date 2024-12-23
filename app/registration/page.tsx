@@ -140,8 +140,8 @@ const RegistrationPage = () => {
     const notificationData = {
       app_id: oneSignalAppId,
       included_segments: ["All"], // أو استخدم include_player_ids لاستهداف جهاز معين
-      headings: { en: "New User Registered" },
-      contents: { en: `A new user, ${userName}, has registered.` },
+      headings: { ar: " مستخدم جديد " },
+      contents: { ar: ` المسيخدم الجديد , ${userName}, يطلب التواصل .` },
     };
   
     try {

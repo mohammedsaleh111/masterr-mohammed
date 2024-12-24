@@ -21,6 +21,8 @@ const RegistrationPage = () => {
     bloodType: "",
     isSeek: "",
     medicalHistory: "",
+    isChiTrainer: "",
+    aboutChi: "",
   });
 
   interface User {
@@ -75,6 +77,8 @@ const RegistrationPage = () => {
         bloodType: formData.bloodType,
         isSeek: formData.isSeek,
         medicalHistory: formData.isSeek == 'no' ? 'لا يوجد أمراض' : formData.medicalHistory,
+        isChiTrainer: formData.isChiTrainer,
+        aboutChi: formData.isChiTrainer == 'no' ? 'لم يمارس التشي من قبل' : formData.aboutChi
       };
 
       await emailjs.send(
@@ -118,6 +122,8 @@ const RegistrationPage = () => {
           bloodType: formData.bloodType,
           isSeek: formData.isSeek,
           medicalHistory: formData.medicalHistory,
+          isChiTrainer: formData.isChiTrainer,
+          aboutChi: formData.aboutChi,
           isSeen: false, // إضافة الحقل isSeen
           sendDataAt: new Date() // إضافة حقل submissionDate
         });
@@ -136,14 +142,14 @@ const RegistrationPage = () => {
   async function sendNotification(userName: any) {
     const oneSignalAppId = "b14f2977-d416-4715-b55c-11bfeb7412a0";
     const restApiKey = "os_v2_app_wfhss56uczdrlnk4cg76w5asucjwzr64de6ejg4yzomjuk4ma7a5amzisxmkvxegu4feqmsrxoe3tm7uut7gwd2lwwxfffak5o7hwuy";
-  
+
     const notificationData = {
       app_id: oneSignalAppId,
       included_segments: ["All"], // أو استخدم include_player_ids لاستهداف جهاز معين
       headings: { en: " مستخدم جديد " },
       contents: { en: ` المسيخدم الجديد , ${userName}, يطلب التواصل .` },
     };
-  
+
     try {
       const response = await axios.post(
         "https://onesignal.com/api/v1/notifications",
@@ -160,14 +166,14 @@ const RegistrationPage = () => {
       console.error("Error sending notification:", error);
     }
   }
-  
-    async function handler(req: { method: string; body: { userName: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): void; new(): any; }; }; }) {
+
+  async function handler(req: { method: string; body: { userName: any; }; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { message: string; }): void; new(): any; }; }; }) {
     if (req.method === "POST") {
       const { userName } = req.body;
-  
+
       // سجل المستخدم في Firebase أو قم بأي معالجة أخرى هنا
       await sendNotification(userName);
-  
+
       res.status(200).json({ message: "User registered and notification sent." });
     } else {
       res.status(405).json({ message: "Method not allowed" });
@@ -177,7 +183,7 @@ const RegistrationPage = () => {
   return (
     <div className="p-8 bg-gray-100 flex text-right">
       <div className="bg-white rounded-lg shadow-md p-6  mx-auto ">
-      <h2 className="text-2xl font-semibold text-center pb-9">طلب تسجيل شراء الكورس</h2>
+        <h2 className="text-2xl font-semibold text-center pb-9">طلب تسجيل شراء الكورس</h2>
         <img src="/images/Registration/logo.jpeg" alt="" className=" w-[100vw] sm:w-[75vw] lg:w-[50vw] object-cover mx-auto" />
         <br />
         <p className=" text-2xl">
@@ -317,6 +323,34 @@ const RegistrationPage = () => {
 
           </div>
 
+            <label className="mt-4">: هل مارست تمارين التنفس من قبل ؟ </label>
+            <select
+              name="isChiTrainer"
+              value={formData.isChiTrainer}
+              onChange={handleInputChange}
+              required
+              className="border border-gray-300 p-2 rounded-md"
+            >
+              <option onInput={() => null} value="">اختر</option>
+              <option value="yes">نعم</option>
+              <option value="no">لا</option>
+            </select>
+            <div>
+              {formData.isChiTrainer === "yes" ? (
+                <div className="mt-4 flex flex-row gap-3">
+                  <input
+                    type="text"
+                    name="aboutChi"
+                    value={formData.aboutChi}
+                    onChange={handleInputChange}
+                    required
+                    className="border border-gray-300 p-2 rounded-md"></input>
+                  <label className="mt-4">: كم من الوقت ونبذة عن اسلوب التمرين </label>
+                </div>
+              ) : null}
+
+            </div>
+
           <label className="mt-4">: رقم الواتس</label>
           <PhoneInput
             country={"eg"}
@@ -331,7 +365,7 @@ const RegistrationPage = () => {
             }}
             enableSearch={true}
             disableCountryGuess={true}
-            disableCountryCode={true} // تعطيل كود الدولة الافتراضي
+            disableCountryCode={false} // تعطيل كود الدولة الافتراضي
             disableDropdown={false} // ترك خاصية البحث عن الدول مفعلة
           />
 

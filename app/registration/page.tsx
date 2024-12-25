@@ -186,16 +186,20 @@ const RegistrationPage = () => {
         <h2 className="text-2xl font-semibold text-center pb-9">طلب تسجيل شراء الكورس</h2>
         <img src="/images/Registration/logo.jpeg" alt="" className=" w-[100vw] sm:w-[75vw] lg:w-[50vw] object-cover mx-auto" />
         <br />
-        <p className=" text-2xl">
-          هام جدا
-        </p>
-        <p className="text-gray-700 pt-5 text-right">مرحبا {user?.displayName || "لم يتم تسجيل الدخول"}</p>
-        <br />
-        <p className="text-center">
-          برجاء ملئ الحقول بدقة لانه بناءا علي بياناتك سيتم تحديد نظام التدريب والتمارين المناسبة والمخصصة لك فقط وبارسالك هذه البيانات سيتم التواصل معك من قبل ماستر محمد عطية لاعطاءك اول تمرين والذي يبلغ سعره 50 دولارا فقط
-        </p>
+        <div className=" text-center px-9">
+          <p className=" text-2xl">
+            هام جدا
+          </p>
+          <p className="text-gray-700 pt-5 text-right">مرحبا {user?.displayName || "لم يتم تسجيل الدخول"}</p>
+          <br />
+          <p className="text-center">
+            برجاء ملئ الحقول بدقة لانه بناءا علي بياناتك سيتم تحديد نظام التدريب والتمارين المناسبة والمخصصة لك فقط وبارسالك هذه البيانات سيتم التواصل معك من قبل ماستر محمد عطية لاعطاءك اول تمرين والذي يبلغ سعره 50 دولارا فقط
+          </p>
+        </div>
 
-        <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); submitForm(); }}>
+        <br />
+
+        <form className="flex flex-col gap-5 lg:px-52 mt-5" onSubmit={(e) => { e.preventDefault(); submitForm(); }}>
           <label className="mt-4">: أهدافك من ممارسة التشي كونغ</label>
           <input
             type="text"
@@ -323,33 +327,34 @@ const RegistrationPage = () => {
 
           </div>
 
-            <label className="mt-4">: هل مارست تمارين التنفس من قبل ؟ </label>
-            <select
-              name="isChiTrainer"
-              value={formData.isChiTrainer}
-              onChange={handleInputChange}
-              required
-              className="border border-gray-300 p-2 rounded-md"
-            >
-              <option onInput={() => null} value="">اختر</option>
-              <option value="yes">نعم</option>
-              <option value="no">لا</option>
-            </select>
-            <div>
-              {formData.isChiTrainer === "yes" ? (
-                <div className="mt-4 flex flex-row gap-3">
-                  <input
-                    type="text"
-                    name="aboutChi"
-                    value={formData.aboutChi}
-                    onChange={handleInputChange}
-                    required
-                    className="border border-gray-300 p-2 rounded-md"></input>
-                  <label className="mt-4">: كم من الوقت ونبذة عن اسلوب التمرين </label>
-                </div>
-              ) : null}
+          <label className="mt-4">: هل مارست تمارين التنفس من قبل ؟ </label>
+          <select
+            name="isChiTrainer"
+            value={formData.isChiTrainer}
+            onChange={handleInputChange}
+            required
+            className="border border-gray-300 p-2 rounded-md"
+          >
+            <option onInput={() => null} value="">اختر</option>
+            <option value="yes">نعم</option>
+            <option value="no">لا</option>
+          </select>
+          <div>
+            {formData.isChiTrainer === "yes" ? (
+              <div className="mt-4 flex flex-col gap-3">
+                <label className="mt-4">: كم من الوقت ونبذة عن اسلوب التمرين </label>
 
-            </div>
+                <input
+                  type="text"
+                  name="aboutChi"
+                  value={formData.aboutChi}
+                  onChange={handleInputChange}
+                  required
+                  className="border border-gray-300 p-2 rounded-md"></input>
+              </div>
+            ) : null}
+
+          </div>
 
           <label className="mt-4">: رقم الواتس</label>
           <PhoneInput

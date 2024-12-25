@@ -532,11 +532,8 @@ video {
 .mt-9{
   margin-top: 2.25rem;
 }
-.mr-0{
-  margin-right: 0px;
-}
-.ml-0{
-  margin-left: 0px;
+.mt-5{
+  margin-top: 1.25rem;
 }
 .line-clamp-2{
   overflow: hidden;
@@ -647,18 +644,6 @@ video {
 }
 .flex-col{
   flex-direction: column;
-}
-.content-start{
-  align-content: flex-start;
-}
-.content-end{
-  align-content: flex-end;
-}
-.items-start{
-  align-items: flex-start;
-}
-.items-end{
-  align-items: flex-end;
 }
 .items-center{
   align-items: center;
@@ -839,6 +824,14 @@ video {
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+.px-9{
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
+}
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .pb-10{
   padding-bottom: 2.5rem;
@@ -1154,6 +1147,10 @@ html:not([data-scroll="0"]) .navbar {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+  .sm\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   .sm\:pb-12{
     padding-bottom: 3rem;
   }
@@ -1197,6 +1194,10 @@ html:not([data-scroll="0"]) .navbar {
   }
   .md\:p-6{
     padding: 1.5rem;
+  }
+  .md\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .md\:pt-24{
     padding-top: 6rem;
@@ -1252,6 +1253,18 @@ html:not([data-scroll="0"]) .navbar {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+  .lg\:px-16{
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .lg\:px-96{
+    padding-left: 24rem;
+    padding-right: 24rem;
+  }
+  .lg\:px-52{
+    padding-left: 13rem;
+    padding-right: 13rem;
+  }
   .lg\:pt-10{
     padding-top: 2.5rem;
   }
@@ -1273,6 +1286,13 @@ html:not([data-scroll="0"]) .navbar {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:px-2{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 

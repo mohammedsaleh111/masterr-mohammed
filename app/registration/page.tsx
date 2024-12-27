@@ -23,6 +23,7 @@ const RegistrationPage = () => {
     medicalHistory: "",
     isChiTrainer: "",
     aboutChi: "",
+    work: "",
   });
 
   interface User {
@@ -78,7 +79,8 @@ const RegistrationPage = () => {
         isSeek: formData.isSeek,
         medicalHistory: formData.isSeek == 'no' ? 'لا يوجد أمراض' : formData.medicalHistory,
         isChiTrainer: formData.isChiTrainer,
-        aboutChi: formData.isChiTrainer == 'no' ? 'لم يمارس التشي من قبل' : formData.aboutChi
+        aboutChi: formData.isChiTrainer == 'no' ? 'لم يمارس التشي من قبل' : formData.aboutChi,
+        work: formData.work
       };
 
       await emailjs.send(
@@ -124,6 +126,7 @@ const RegistrationPage = () => {
           medicalHistory: formData.medicalHistory,
           isChiTrainer: formData.isChiTrainer,
           aboutChi: formData.aboutChi,
+          work: formData.work,
           isSeen: false, // إضافة الحقل isSeen
           sendDataAt: new Date() // إضافة حقل submissionDate
         });
@@ -232,6 +235,16 @@ const RegistrationPage = () => {
             <option value="male">ذكر</option>
             <option value="female">أنثى</option>
           </select>
+
+          <label className="mt-4">: المهنة </label>
+          <input
+            type="text"
+            name="work"
+            value={formData.work}
+            onChange={handleInputChange}
+            required
+            className="border border-gray-300 p-2 rounded-md"
+          />
 
           <label className="mt-4">:  هل تمارس الرياضة </label>
           <select

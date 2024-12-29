@@ -327,6 +327,7 @@ const RegistrationPage = () => {
           <div>
             {formData.isSeek === "yes" ? (
               <div className="mt-4 flex flex-col gap-3">
+                <label className="mt-4">:من ماذا تعاني</label>
                 <input
                   type="text"
                   name="medicalHistory"
@@ -334,7 +335,6 @@ const RegistrationPage = () => {
                   onChange={handleInputChange}
                   required
                   className="border border-gray-300 p-2 rounded-md"></input>
-                <label className="mt-4">:من ماذا تعاني</label>
               </div>
             ) : null}
 

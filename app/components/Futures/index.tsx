@@ -47,7 +47,7 @@ const Futures = () => {
 
 
                 <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-5 mt-12'>
-                    <Fade className='bg-pink bg-opacity-20' direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
+                    <Fade className='bg-pink bg-opacity-20 rounded-3xl' direction={'up'} delay={800} cascade damping={1e-1} triggerOnce={true}>
                         {cardData.map((items, i) => (
                             <div className='card-b p-8 relative rounded-3xl border h-80' key={i}>
                                 <div className='work-img-bg rounded-full flex justify-center items-center object-cover '>

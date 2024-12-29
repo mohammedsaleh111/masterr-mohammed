@@ -16,7 +16,7 @@ const Banner = () => {
                 <div className='col-span-6 flex flex-col justify-center h-[50vh]'>
                     <Fade direction={'up'} delay={200} cascade damping={1e-1} triggerOnce={true}>
                         <h1 className="text-4xl lg:text-5xl sm:text-4xl font-semibold mb-5 text-lightgrey md:4px lg:text-start text-center">
-                            ماستر محمد عطية <br /> خبير التشي كونغ
+                            أكاديمية ماستر محمد عطية لتمرينات التنفس تشي قونغ
                         </h1>
                     </Fade>
                     <Fade direction={'up'} delay={400} cascade damping={1e-1} triggerOnce={true}>

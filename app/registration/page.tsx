@@ -326,7 +326,7 @@ const RegistrationPage = () => {
           </select>
           <div>
             {formData.isSeek === "yes" ? (
-              <div className="mt-4 flex flex-row gap-3">
+              <div className="mt-4 flex flex-col gap-3">
                 <input
                   type="text"
                   name="medicalHistory"

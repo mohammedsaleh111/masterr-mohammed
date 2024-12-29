@@ -8,7 +8,7 @@ const Footer = () => {
         <div className=" p-10 flex flex-col">
             <button className=" flex flex-row gap-3 mx-auto hover:text-xl shadow-black"
             onClick={() => {
-                window.location.href = 'https://www.facebook.com/groups/144375238954883/?multi_permalinks=9186717734720543&notif_id=1734181731897521&notif_t=group_activity&ref=notif'; // الرابط الخارجي
+                window.location.href = 'https://www.facebook.com/groups/956466279243273'; // الرابط الخارجي
               }}
             >
                 

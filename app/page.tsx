@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className={`bg-[${bgColor}] bg-opacity-15`}>
       <Banner />
-      <AboutChi/>
+      <AboutChi />
       <Features />
       <ConnectInfo />
       <Expert />

@@ -7,7 +7,7 @@ import ClientNavbar from './components/ClientNavBar';
 
 
 export const metadata = {
-  title: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية لتدريب التشي كونغ',
+  title: 'أكاديمية ماستر محمد عطية لتمرينات التنفس تشي كونغ',
   description: 'Master Mohammed For Chi Kung Training Center |  ماستر محمد عطية لتدريب التشي كونغ',
 }
 

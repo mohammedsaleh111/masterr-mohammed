@@ -51,7 +51,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en">
+    <html lang="ar">
       <body>
       <ClientNavbar/>
         {children}

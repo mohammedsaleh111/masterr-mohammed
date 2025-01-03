@@ -40,10 +40,10 @@ export const metadata = {
   language: 'ar', // تعريف اللغة
 
   // Security and Performance
-  contentSecurityPolicy: "default-src 'self'; img-src 'self' https://*; child-src 'none';",
-  cacheControl: 'no-cache, no-store, must-revalidate',
-  pragma: 'no-cache',
-  expires: '0',
+  // contentSecurityPolicy: "default-src 'self'; img-src 'self' https://*; child-src 'none';",
+  // cacheControl: 'no-cache, no-store, must-revalidate',
+  // pragma: 'no-cache',
+  // expires: '0',
 }
 
 

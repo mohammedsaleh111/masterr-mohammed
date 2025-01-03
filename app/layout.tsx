@@ -33,6 +33,7 @@ export const metadata = {
   icons: {
     icon: '/vercel.svg', // إضافة favicon
   },
+  favicon: '/vercel.svg',
   keywords: ['chi kung', 'qigong', 'tai chi','yoga','تشي كونغ','قيقونج','تاي شي','يوجا','تمرينات التنفس العميق'], // كلمات مفتاحية لتحسين السيو
   author: ' ماستر محمد عطية',
 
